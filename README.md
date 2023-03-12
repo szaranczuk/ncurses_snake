@@ -29,3 +29,6 @@ $ mingw32-make
 ```
 
 executable is in build/bin/
+
+### Game screenshot
+![snake ncurses game](./images/game.jpg)
