@@ -21,9 +21,15 @@ void operator-=(coord& a, const coord& b)
 }
 coord operator+(const coord& a, const coord& b)
 {
-	return {a.x + b.x, a.y + b.y};
+	coord out;
+	out.y = a.y + b.y;
+	out.x = a.x + b.x;
+	return out;
 }
 coord operator-(const coord& a, const coord& b)
 {
-	return {a.x - b.x, a.y - b.y};
+	coord out;
+	out.y = a.y - b.y;
+	out.x = a.x - b.x;
+	return out;
 }

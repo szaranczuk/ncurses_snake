@@ -3,6 +3,7 @@
 #include <map>
 #include <exception>
 #include <list>
+#include <sstream>
 #include <vector>
 #include "game.hpp"
 
@@ -30,6 +31,8 @@ int main()
 	noecho();
 	initscr();
 	Game game(10, 10);
+	clear();
+	printw(game.getBoard().c_str());
 	while (game.isGameActive())
 	{
 		directions direction = getInput();
