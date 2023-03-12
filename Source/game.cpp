@@ -1,9 +1,11 @@
 #include "game.hpp"
 
-Game::Game(int _height, int _width) : board(_height, _width)
+Game::Game(int _height, int _width) : board(_height, _width), snake()
 {
 	gen.seed(std::random_device{}());
 	isactive = true;
+	coord initial_snake_head = {getRandomInt(0, _height - 1), getRandomInt(0, _width - 1)};
+	snake.setHeadPos(initial_snake_head);
 }
 
 void Game::takePlayerTurn(directions direction)
