@@ -6,7 +6,8 @@ enum directions
 	UP = 0,
 	DOWN = 1,
 	LEFT = 2,
-	RIGHT = 3
+	RIGHT = 3,
+	NULL_DIRECTION = 4
 };
 
 struct coord
@@ -23,3 +24,5 @@ void operator+=(coord& a, const coord& b);
 void operator-=(coord& a, const coord& b);
 coord operator+(const coord& a, const coord& b);
 coord operator-(const coord& a, const coord& b);
+coord operator*(const coord& a, int scale);
+coord operator*(int scale, const coord& a);

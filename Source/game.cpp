@@ -14,6 +14,10 @@ Game::Game(int _height, int _width) : board(_height, _width), snake()
 
 void Game::takePlayerTurn(directions direction)
 {
+	if (snake.getSize() > 1 && snake.isBackMove(direction))
+	{
+		return; 
+	}
 	board.setFieldValue(snake.getHeadPos(), BODY);
 	snake.move(direction);
 	if (snake.hasEaten())
