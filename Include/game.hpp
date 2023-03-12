@@ -5,9 +5,9 @@
 
 
 const char HEAD = '@';
-const char BODY = '%';
+const char BODY = 'O';
 const char EMPTY = '.';
-const char APPLE = 'o';
+const char APPLE = 'x';
 
 class Game
 {

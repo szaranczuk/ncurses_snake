@@ -10,7 +10,7 @@ Board::Board(int _height, int _width) : height(_height), width(_width)
 	}
 }
 
-char Board::getFieldValue(coord field) {return board[field.y][field.x];}
+char Board::getFieldValue(coord field) {return board.at(field.y).at(field.x);}
 
 void Board::setFieldValue(coord field, char value) {board[field.y][field.x] = value;}
 

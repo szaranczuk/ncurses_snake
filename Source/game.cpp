@@ -1,4 +1,6 @@
 #include "game.hpp"
+#include <exception>
+#include <stdexcept>
 
 Game::Game(int _height, int _width) : board(_height, _width), snake()
 {
@@ -12,16 +14,25 @@ Game::Game(int _height, int _width) : board(_height, _width), snake()
 
 void Game::takePlayerTurn(directions direction)
 {
+	board.setFieldValue(snake.getHeadPos(), BODY);
 	snake.move(direction);
 	coord headpos = snake.getHeadPos();
-	if (board.getFieldValue(headpos) == APPLE)
+	try
 	{
-		snake.eatApple();
-		placeApple();
+		if (board.getFieldValue(headpos) == APPLE)
+		{
+			snake.eatApple();
+			placeApple();
+		}
+		else if (isBadSymbol(board.getFieldValue(headpos)))
+		{
+			isactive = false;
+		}
 	}
-	else if (isBadSymbol(board.getFieldValue(headpos)))
+	catch(std::out_of_range)
 	{
 		isactive = false;
+		return;
 	}
 	board.setFieldValue(headpos, HEAD);
 	if (snake.hasEaten())
