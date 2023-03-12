@@ -3,11 +3,13 @@
 #include "snake.hpp"
 #include <random>
 
+const char EXIT_KEY = 'q';
 
 const char HEAD = '@';
 const char BODY = 'O';
 const char EMPTY = '.';
 const char APPLE = 'x';
+const char FRAME = '#';
 
 class Game
 {

@@ -21,10 +21,16 @@ int Board::getWidth() {return width;}
 std::string Board::parseToString()
 {
 	std::string out;
+	std::fill_n(std::back_inserter(out), getWidth()+2, FRAME);
+	out.push_back('\n');
 	for (const auto& row : board)
 	{
+		out.push_back(FRAME);
 		out.insert(out.size(), std::string(row.begin(), row.end()));
+		out.push_back(FRAME);
 		out.push_back('\n');
 	}
+	std::fill_n(std::back_inserter(out), getWidth()+2, FRAME);
+	out.push_back('\n');
 	return out;
 }

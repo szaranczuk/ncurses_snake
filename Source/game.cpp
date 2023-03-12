@@ -16,6 +16,16 @@ void Game::takePlayerTurn(directions direction)
 {
 	board.setFieldValue(snake.getHeadPos(), BODY);
 	snake.move(direction);
+	if (snake.hasEaten())
+	{
+		snake.switchHasEaten();
+	}
+	else
+	{
+		coord tail = snake.getTailPos();
+		board.setFieldValue(tail, EMPTY);
+		snake.popTail();
+	}
 	coord headpos = snake.getHeadPos();
 	try
 	{
@@ -35,16 +45,6 @@ void Game::takePlayerTurn(directions direction)
 		return;
 	}
 	board.setFieldValue(headpos, HEAD);
-	if (snake.hasEaten())
-	{
-		snake.switchHasEaten();
-	}
-	else
-	{
-		coord tail = snake.getTailPos();
-		board.setFieldValue(tail, EMPTY);
-		snake.popTail();
-	}
 }
 
 bool Game::isBadSymbol(char symbol)

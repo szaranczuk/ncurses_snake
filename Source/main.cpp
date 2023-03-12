@@ -14,6 +14,11 @@ directions getInput()
 	while (true)
 	{
 		char input = getch();
+		if (input == EXIT_KEY)
+		{
+			endwin();
+			exit(0);
+		}
 		try
 		{
 			return keymap.at(input);
